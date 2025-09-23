@@ -1,3 +1,4 @@
+const interwaly = document.getElementsByClassName("interwaly");
 function rozwinListe(){
     const lista = document.getElementById("lista");
     lista.classList.toggle("widoczna");
@@ -10,11 +11,17 @@ function rozwinMenu(){
 }
 function rozwinInstrumenty(){
     const instrumenty = document.getElementById("przyciskInst");
-    instrumenty.classList.toggle("widoczna");
-    instrumenty.classList.toggle("ukryta");
+    const zawartosc = document.getElementsByClassName("zawartosc");
+    zawartosc.classList.toggle("ukryta");
+    zawartosc.classList.toggle("widoczna");
 }
 function pokazOkienko(){
     const okno = document.getElementById("okno");
     okno.classList.toggle("widoczna");
     okno.classList.toggle("ukryta");
+}
+for (let i = 0; i < interwaly.length; i++) {
+    interwaly[i].addEventListener("click", function () {
+        this.classList.toggle("interwalyactive");
+    });
 }
