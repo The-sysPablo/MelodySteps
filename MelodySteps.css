@@ -45,19 +45,13 @@ body {
     color: black;
     padding: 10px 15px;
 }
-.dropdown .zawartosc{
-    display: none;
+.dropdown #zawartosc{
     margin-top: 25px;
     margin-left: 10px;
     position: absolute;
     background-color: white;
     box-shadow: 2px 2px 5px black;
-
-}
-
-.zawartosc{
-    transition: max-height 0.3s ease-in-out;
-    overflow: hidden;
+    font-size: 1.5em;
 }
 
 #glowa{
@@ -82,18 +76,17 @@ body {
     border-radius: 2px;
 }
 
-
 #menu {
     position: absolute;
     top: 45px;
     left: 0;
-    width: 20%;
+    width: auto;
     font-size: .75rem;
     font-weight: 600;
     padding: 0 1rem;
     z-index: 9;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgb(255, 255, 255);
     z-index: 10;
     padding: 20px;
     box-sizing: border-box;
@@ -152,7 +145,7 @@ body {
     border-radius: 15px;
     cursor: pointer;
     margin-bottom: 20px;
-
+    box-shadow: 2px 2px 5px black;
 }
 #okno{
     border: solid 2px black;
@@ -164,12 +157,6 @@ body {
     color: white;
     margin: auto;
     border-radius: 15px;
-}
-.interwaly:hover{
-    color: #4e42d4;
-}
-.dropdown:hover .zawartosc{
-    display: block;
 }
 .widoczna{
     display: block;
