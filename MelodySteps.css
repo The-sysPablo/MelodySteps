@@ -4,6 +4,8 @@ body {
     margin: 0;
     display: grid;
     align-items: center;
+    overflow-x: hidden;
+    padding-bottom: 25px;
 }
 
 #gornaBelka {
@@ -50,6 +52,12 @@ body {
     position: absolute;
     background-color: white;
     box-shadow: 2px 2px 5px black;
+
+}
+
+.zawartosc{
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 #glowa{
@@ -79,7 +87,11 @@ body {
     position: absolute;
     top: 45px;
     left: 0;
-    width: 100%;
+    width: 20%;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    z-index: 9;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 10;
@@ -96,13 +108,11 @@ body {
     display: block;
 }
 
-#menu ul {
-    list-style: none;
-    padding: 0;
-}
-
-#menu li {
-    margin: 10px 0;
+#menu a{
+    display: block;
+    color: black;
+    text-decoration: none;
+    margin-top: 20px;
 }
 
 
@@ -125,6 +135,15 @@ body {
     cursor: pointer;
 
 }
+.interwalyactive{
+    color: #4e42d4;
+    background-color: #f0eaff;
+    border-radius: 8px;
+    padding: 5px;
+    transition: all 0.2s ease-in-out;
+
+}
+
 #startPrzycisk{
     display: flex;
     margin: auto;
@@ -137,9 +156,14 @@ body {
 }
 #okno{
     border: solid 2px black;
-    width: 50%;
-    margin: auto;
+    width: 65%;
+    justify-content: center;
     background-color: black;
+    height: 200px;
+    padding: 20px;
+    color: white;
+    margin: auto;
+    border-radius: 15px;
 }
 .interwaly:hover{
     color: #4e42d4;
