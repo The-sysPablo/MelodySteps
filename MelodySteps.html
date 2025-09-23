@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="MelodySteps.css">
+</head>
+<body>
+    <div id="kontener">
+        <div id="gornaBelka">
+            <div id="hamburger" onclick="rozwinMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="dropdown">
+                <button id="przyciskInst" onclick="rozwinInstrumenty()">Instrumenty</button>
+                <div class="zawartosc">
+                    <a href="">Gitara</a>
+                    <a href="">Pianino</a>
+                </div>
+            </div>
+                
+        </div>
+        <nav id="menu" class="ukryta">
+        </nav>
+        <header id="glowa">
+            <div id="kontenerGlowa">
+                <h1 id="nazwaStrony" class="tekst">MelodySteps</h1><br>
+                <h2 id="tekst1" class="tekst">Wybierz interwały do gry</h2>
+            </div>
+        </header>
+        <div id="boxInterwaly">
+            <span class="interwaly">1</span>
+            <span class="interwaly">2</span>
+            <span class="interwaly">2></span>
+            <span class="interwaly">3</span>
+            <span class="interwaly">3></span>
+            <span class="interwaly">4</span>
+            <span class="interwaly">4<</span>
+            <span class="interwaly">5</span>
+            <span class="interwaly">6></span>
+            <span class="interwaly">6</span>
+            <span class="interwaly">7</span>
+            <span class="interwaly">7<</span>
+            <span class="interwaly">8</span>
+        </div>
+        <button id="startPrzycisk" onclick="pokazOkienko()">START</button>
+        <div id="okno" class="ukryta">
+
+        </div>
+    </div>
+    <script src="MelodySteps.js" ></script>
+</body>
+</html>
