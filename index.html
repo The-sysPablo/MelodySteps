@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <title>MelodySteps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="MelodySteps.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="kontener">
@@ -19,17 +21,23 @@
             <div class="dropdown">
                 <button id="przyciskInst" onclick="rozwinInstrumenty()">Instrumenty</button>
                 <div id="zawartosc" class="ukryta">
-                    <a href="">Gitara</a>
                     <a href="">Pianino</a>
+                    <a href="">Gitara</a>
+                    <a href="">Trąbka</a>
+                    <a href="">Flet</a>
+                    <a href="">Skrzypce</a>
+                    <a href="">Saksofon</a>
+                    <a href="">Dzwonki</a>
+                    <a href="">Klawesyn</a>
                 </div>
             </div>
                 
         </div>
         <nav id="menu" class="ukryta">
             <h2>TRYBY GRY</h2>
-            <a href="">INTERWAŁY ZE SŁUCHU</a>
+            <a href="">INETRWAŁY ZE SŁUCHU</a>
             <a href="">TRIADY ZE SŁUCHU</a>
-            <a href="">POSTAĆ GAMY MOCOWEJ</a>
+            <a href="">POSTAĆ GAMY MOLOWEJ</a>
             <a href="">ROZPOZNAWANIE GAM</a>
             <a href="">ROZPOZNAWANIE DŹWIĘKÓW</a>
             <a href="">QUIZ Z KOŁA KWINTOWEGO</a>
@@ -41,25 +49,60 @@
             </div>
         </header>
         <div id="boxInterwaly">
-            <span class="interwaly">1</span>
-            <span class="interwaly">2</span>
-            <span class="interwaly">2></span>
-            <span class="interwaly">3</span>
-            <span class="interwaly">3></span>
-            <span class="interwaly">4</span>
-            <span class="interwaly">4<</span>
-            <span class="interwaly">5</span>
-            <span class="interwaly">6></span>
-            <span class="interwaly">6</span>
-            <span class="interwaly">7</span>
-            <span class="interwaly">7<</span>
-            <span class="interwaly">8</span>
+            <span class="interwaly" onclick="dodajInterwal(0)">1</span>
+            <span class="interwaly" onclick="dodajInterwal(1)">2↓</span>
+            <span class="interwaly" onclick="dodajInterwal(2)">2</span>
+            <span class="interwaly" onclick="dodajInterwal(3)">3↓</span>
+            <span class="interwaly" onclick="dodajInterwal(4)">3</span>
+            <span class="interwaly" onclick="dodajInterwal(5)">4</span>
+            <span class="interwaly" onclick="dodajInterwal(6)">4↑</span>
+            <span class="interwaly" onclick="dodajInterwal(7)">5</span>
+            <span class="interwaly" onclick="dodajInterwal(8)">6↓</span>
+            <span class="interwaly" onclick="dodajInterwal(9)">6</span>
+            <span class="interwaly" onclick="dodajInterwal(10)">7</span>
+            <span class="interwaly" onclick="dodajInterwal(11)">7↑</span>
+            <span class="interwaly" onclick="dodajInterwal(12)">8</span>
         </div>
-        <button id="startPrzycisk" onclick="pokazOkienko()">START</button>
+        <button id="startPrzycisk" onclick="startGry()">START</button>
         <div id="okno" class="ukryta">
+            <h2 id="tekst3" class="tekst"></h2>
+            <button id="odtworzPrzycisk" onclick="odtworz()">ODTWÓRZ</button>
+            <h2 id="tekst2" class="tekst">Wybierz odpowiedź:</h2>
+            <div id="boxOdp">
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(0)" name="wybor" id="1">
+                <label for="1" class="intNazwy"> 1</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(1)" name="wybor" id="2_">
+                <label for="2>" class="intNazwy"> 2↓</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(2)" name="wybor" id="2">
+                <label for="2" class="intNazwy"> 2</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(3)" name="wybor" id="3_">
+                <label for="3>" class="intNazwy"> 3↓</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(4)" name="wybor" id="3">
+                <label for="3" class="intNazwy"> 3</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(5)" name="wybor" id="4">
+                <label for="4" class="intNazwy"> 4</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(6)" name="wybor" id="4_">
+                <label for="4" class="intNazwy"> 4↑</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(7)" name="wybor" id="5">
+                <label for="5" class="intNazwy"> 5</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(8)" name="wybor" id="6_">
+                <label for="6>" class="intNazwy"> 6↓</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(9)" name="wybor" id="6">
+                <label for="6" class="intNazwy"> 6</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(10)" name="wybor" id="7">
+                <label for="7" class="intNazwy"> 7</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(11)" name="wybor" id="7_">
+                <label for="7" class="intNazwy"> 7↑</label>
+                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(12)" name="wybor" id="8">
+                <label for="8" class="intNazwy"> 8</label>
+            </div>
+            <button id="zatwierdzPrzycisk" onclick="submit()">ZATWIERDŹ</button>
+            <button id="restartPrzycisk" onclick="restart()">RESTART</button>
+            <div id="boxScore">
 
+            </div>
         </div>
     </div>
-    <script src="MelodySteps.js" ></script>
+    <script src="index.js"></script>
 </body>
 </html>
