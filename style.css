@@ -1,0 +1,266 @@
+body {
+    font-family: "Alan Sans", sans-serif;
+    background-color: rgb(237, 246, 249);
+    margin: 0;
+    display: grid;
+    align-items: center;
+    overflow-x: hidden;
+    padding-bottom: 25px;
+}
+
+#gornaBelka {
+    width: 100%;
+    font-size: .75rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    z-index: 9;
+    color: rgb(0, 108, 117);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 2.75rem;
+    padding: 10px 10px;
+    display: flex;
+    float: left;
+    height: auto;
+    background-color: rgb(0, 108, 117);
+}
+
+.dropdown button{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    left: 20px;
+    padding: 2px;
+    margin-left: 30px;
+    display: flex;
+    font-size: 20px;
+    color: rgb(131, 197, 190)
+
+}
+
+.dropdown a{
+    display: flex;
+    text-decoration: none;
+    color: rgb(138, 40, 70);
+    padding: 10px 15px;
+}
+.dropdown #zawartosc{
+    margin-top: 25px;
+    margin-left: 10px;
+    position: absolute;
+    background-color: white;
+    box-shadow: 2px 2px 5px black;
+    font-size: 1.5em;
+}
+
+#glowa{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+#hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#hamburger span {
+    height: 4px;
+    background-color: rgb(131, 197, 190);
+    border-radius: 2px;
+}
+
+#menu {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: auto;
+    font-size: 0.70rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    z-index: 9;
+    height: 100vh;
+    background-color: hsl(175, 36%, 64%);
+    z-index: 10;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#menu.ukryta {
+    display: none;
+}
+
+#menu.widoczna {
+    display: block;
+}
+
+#menu a{
+    display: block;
+    color: rgb(138, 40, 70);
+    text-decoration: none;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 120%;
+
+}
+
+
+#nazwaStrony {
+    font-size: 500%;
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    margin: 30px 0;
+    color: rgb(138, 40, 70);
+    text-shadow: rgb(131, 197, 190) 5px 5px;
+}
+
+#tekst1{
+    font-size: 150%;
+}
+
+#boxInterwaly{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+}
+
+.interwaly{
+    font-weight: bolder;
+    font-size: 2.5em;
+    cursor: pointer;
+    background-color: bisque;
+    width: 3.5%;
+    width: 3vw;
+    min-width: 60px;
+    max-width: 150px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.interwalyactive{
+    color: rgb(255, 194, 212);
+    background-color: rgb(138, 40, 70);
+    border-radius: 8px;
+    padding: 5px;
+    transition: all 0.2s ease-in-out;
+
+}
+
+#startPrzycisk{
+    display: flex;
+    margin: auto;
+    font-size: 2.5em;
+    background-color:rgb(0, 108, 117);
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    color: rgb(131, 197, 190);
+    border-color: rgb(131, 197, 190);
+    padding: 5px 20px;
+}
+
+#okno{
+    border: solid 8px rgb(138, 40, 70);
+    width: 65%;
+    background-color: rgb(255, 194, 212);
+    height: auto;
+    padding: 20px;
+    color: white;
+    margin: auto;
+    border-radius: 15px;
+}
+
+#tekst3{
+    font-size: 150%;
+    color:black;
+    padding: none;
+    margin: none;
+}
+
+#tekst2{
+    font-size: 150%;
+    color:black;
+    padding: none;
+    margin: none;
+}
+
+#odtworzPrzycisk{
+    display: flex;
+    margin: auto;
+    font-size: 1.5em;
+    background-color: bisque;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    color:black;
+    border-color: black;
+    padding: 5px 20px;
+    font-weight: bolder;
+}
+
+#boxOdp{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+}
+
+.interwalyWybor{
+    cursor: pointer;
+    width: 1vw;
+    position: relative;
+}
+
+.intNazwy{
+    font-weight: bolder;
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(138, 40, 70);
+    text-shadow: white 2.5px 2.5px;
+    padding-right: 10px;
+}
+
+#zatwierdzPrzycisk{
+    margin: auto;
+    font-size: 1.2em;
+    background-color: bisque;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    color:black;
+    border-color: black;
+    padding: 5px 20px;
+    font-weight: bolder;
+}
+
+#restartPrzycisk{
+    margin: auto;
+    font-size: 1.2em;
+    background-color: bisque;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    color:black;
+    border-color: black;
+    padding: 5px 20px;
+    font-weight: bolder;
+}
+
+.widoczna{
+    display: block;
+}
+
+.ukryta{
+    display: none;
+}
