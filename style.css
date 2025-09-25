@@ -78,7 +78,7 @@ body {
 }
 
 #menu {
-    position: absolute;
+    position: fixed;
     top: 45px;
     left: 0;
     width: auto;
@@ -264,3 +264,4 @@ body {
 .ukryta{
     display: none;
 }
+
