@@ -1,12 +1,13 @@
 const interwaly = document.getElementsByClassName("interwaly");
 let inters = [];
 let odp;
+const notes = ["C3", "Cg3", "D3", "Dg3", "E3", "F3", "Fg3", "G3", "Gg3", "A3", "Ag3", "B3", 
+               "C4", "Cg4", "D4", "Dg4", "E4", "F4", "Fg4", "G4", "Gg4", "A4", "Ag4", "B4", "C5"];
+const nLength = notes.length;
 
 class Intrument {
-    constructor(name,soundFile, type){
-        this.name = name;
+    constructor(soundFile){
         this.soundFile = soundFile;
-        this.type = type;
     }
     play(){
         const audio = new Audio(this.soundFile);
@@ -62,11 +63,6 @@ for (let i = 0; i < interwaly.length; i++) {
 });
 }
 
-
-const notes = ["c1", "#c1", "d1", "#d1", "e1", "f1", "#f1", "g1", "#g1", "a1", "#a1", "h1", 
-               "c2", "#c2", "d2", "#d2", "e2", "f2", "#f2", "g2", "#g2", "a2", "#a2", "h2"];
-const nLength = notes.length;
-
 function losInterval(inters){
     const iLength = inters.length;
     const r = Math.floor(Math.random() * iLength);
@@ -93,7 +89,7 @@ function wyswietlInterwaly(inters){
         e.nextElementSibling.style.display = "none";
     })
     for(let i = 0; i < wybrane.length ; i++){
-        for(let k = 0; k < 12 ; k++){
+        for(let k = 0; k < 13 ; k++){
             if(wybrane[i] == wszystkie[k]){
                 let input1 = document.getElementById(`${wybrane[i]}`);
                 input1.style.display = "block";
@@ -103,14 +99,36 @@ function wyswietlInterwaly(inters){
     }
 }
 
+function odtworzDzwiek(firstNote, secondNote, instrument, inter){
+    const note1 = new Intrument(`sounds/${instrument}/${instrument}_${firstNote}.mp3`);
+    const note2 = new Intrument(`sounds/${instrument}/${instrument}_${secondNote}.mp3`);
+    const r = Math.floor(Math.random() * 3)
+    function odt(note){
+        note.play()
+    }
 
-function odtworz(){
-    const viola = new Intrument("viola", "c1-c2/VIOLA A4.mp3","strunowe");
-    viola.play();
+    if(r == 0){
+        note1.play();
+        setTimeout(() => odt(note2), 3000);
+    }else if(r == 1){
+        note2.play();
+        setTimeout(() => odt(note1), 3000);
+    }else if(r == 2){
+        note1.play();
+        note2.play();
+    }
+    console.log(r);
+    console.log(`in ${inter}`);
+    console.log(`n1 ${firstNote}`);
+    console.log(`n2 ${secondNote}`);
 }
 
-let inter = losInterval(inters);
-let firstNoteId = chooseFirstNote(inter);
-let secondNoteId = firstNoteId + inter;
-let firstNote = notes[firstNoteId];
-let secondNote = notes[secondNoteId];
+function odtworz(){
+    let inter = losInterval(inters);
+    let firstNoteId = chooseFirstNote(inter);
+    let secondNoteId = firstNoteId + inter;
+    let firstNote = notes[firstNoteId];
+    let secondNote = notes[secondNoteId];
+    let instrument = `VIOLA`;
+    odtworzDzwiek(firstNote, secondNote, instrument, inter);
+}
