@@ -45,17 +45,26 @@ function startGry(){
     const przycisk = document.getElementById("startPrzycisk");
     const boxInterwaly = document.getElementById("boxInterwaly");
     const tekst1 = document.getElementById("tekst1");
-    if(przycisk.textContent == "START"){
+    const wInstrument = document.getElementById("wInstrument");
+    if(wInstrument.textContent == ""){
+        alert("Nie zaznaczyłeś instrumentu");
+    }else if(przycisk.textContent == "START"){
         przycisk.textContent = "MENU";
+        boxInterwaly.classList.toggle("widoczna");
+        boxInterwaly.classList.toggle("ukryta");
+        okno.classList.toggle("widoczna");
+        okno.classList.toggle("ukryta");
+        tekst1.classList.toggle("widoczna");
+        tekst1.classList.toggle("ukryta");
     }else{
         przycisk.textContent = "START";
+        boxInterwaly.classList.toggle("widoczna");
+        boxInterwaly.classList.toggle("ukryta");
+        okno.classList.toggle("widoczna");
+        okno.classList.toggle("ukryta");
+        tekst1.classList.toggle("widoczna");
+        tekst1.classList.toggle("ukryta");
     }
-    boxInterwaly.classList.toggle("widoczna");
-    boxInterwaly.classList.toggle("ukryta");
-    okno.classList.toggle("widoczna");
-    okno.classList.toggle("ukryta");
-    tekst1.classList.toggle("widoczna");
-    tekst1.classList.toggle("ukryta");
 }
 function dodajInterwal(inter) {
     const index = inters.indexOf(inter);
