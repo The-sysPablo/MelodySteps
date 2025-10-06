@@ -126,6 +126,7 @@ body {
 
 #tekst1{
     font-size: 150%;
+    color: white;
 }
 
 #boxInterwaly{
@@ -285,7 +286,7 @@ body {
     font-weight: bolder;
 }
 #wInstrument{
-    color: black;
+    color: white;
     margin-bottom: 25px;
 }
 .widoczna{
