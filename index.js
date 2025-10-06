@@ -1,9 +1,19 @@
 const interwaly = document.getElementsByClassName("interwaly");
+const komunikat = document.getElementById("tekst3");
+const score = document.getElementById(`Score`);
 let inters = [];
 let odp;
+let proby = 0;
+let prawidlowe = 0;
 const notes = ["C3", "Cg3", "D3", "Dg3", "E3", "F3", "Fg3", "G3", "Gg3", "A3", "Ag3", "B3", 
                "C4", "Cg4", "D4", "Dg4", "E4", "F4", "Fg4", "G4", "Gg4", "A4", "Ag4", "B4", "C5"];
+const interwalyWszystkie = ["1", "2m", "2", "3m", "3", "4", "4zw", "5", "6m", "6", "7", "7w", "8"]
 const nLength = notes.length;
+let inter;
+let test = true;
+let firstNote;
+let secondNote;
+let instrument;
 
 class Intrument {
     constructor(soundFile){
@@ -69,17 +79,11 @@ function losInterval(inters){
     const inter = inters[r];
     return inter;
 }
-
 function chooseFirstNote(inter){
     let maxFirst = nLength - inter;
     let firstNoteId = Math.floor(Math.random() * maxFirst);
     return firstNoteId;
 }
-
-function wybierzOdp(){
-
-}
-
 function wyswietlInterwaly(inters){
     const inputs = document.querySelectorAll("input[type='radio']");
     let wybrane = inters;
@@ -98,15 +102,13 @@ function wyswietlInterwaly(inters){
         }
     }
 }
-
-function odtworzDzwiek(firstNote, secondNote, instrument, inter){
+function odtworzDzwiek(firstNote, secondNote, instrument){
     const note1 = new Intrument(`sounds/${instrument}/${instrument}_${firstNote}.mp3`);
     const note2 = new Intrument(`sounds/${instrument}/${instrument}_${secondNote}.mp3`);
     const r = Math.floor(Math.random() * 3)
     function odt(note){
-        note.play()
+        note.play();
     }
-
     if(r == 0){
         note1.play();
         setTimeout(() => odt(note2), 3000);
@@ -122,13 +124,55 @@ function odtworzDzwiek(firstNote, secondNote, instrument, inter){
     console.log(`n1 ${firstNote}`);
     console.log(`n2 ${secondNote}`);
 }
-
-function odtworz(){
-    let inter = losInterval(inters);
-    let firstNoteId = chooseFirstNote(inter);
-    let secondNoteId = firstNoteId + inter;
-    let firstNote = notes[firstNoteId];
-    let secondNote = notes[secondNoteId];
-    let instrument = `VIOLA`;
-    odtworzDzwiek(firstNote, secondNote, instrument, inter);
+function wybierzInstrument(inst,event){
+    event.preventDefault();
+    const wInstrument = document.getElementById("wInstrument");
+    wInstrument.textContent = `Wybrany instrument: ${inst}`;
 }
+function odtworz(){
+    if(test == true){
+        inter = losInterval(inters);
+        let firstNoteId = chooseFirstNote(inter);
+        let secondNoteId = firstNoteId + inter;
+        firstNote = notes[firstNoteId];
+        secondNote = notes[secondNoteId];
+        instrument = `VIOLA`;
+        test = false;
+    }
+    odtworzDzwiek(firstNote, secondNote, instrument);
+}
+
+function sprawdzOdp(){
+    let wybrana = document.querySelector('input[name="wybor"]:checked');
+    if(wybrana){
+        proby++;
+        return wybrana.value;
+    } else {
+        alert("Nie zaznaczyłeś żadnej odpowiedzi!");
+    }
+}
+function zatwierdzOdp(){
+    test = true;
+    let odpGracza = sprawdzOdp();
+    if (odpGracza === inter && inter != null){
+        komunikat.textContent = `✅Prawidłowa odpowiedź✅`;
+        prawidlowe++;
+        score.textContent = `Prawidłowe: ${prawidlowe} Próby: ${proby}`;
+    }else if(odpGracza != inter){
+        komunikat.textContent = `❌Błąd❌ Prawidłowa odpowiedź: ${interwalyWszystkie[inter]}`
+        score.textContent = `Prawidłowe: ${prawidlowe} Próby: ${proby}`;
+    }else if(inter == undefined  && odpGracza != inter){
+        alert(`Najpierw odtwórz dźwięki!`);
+    }
+    console.log(`odpg: ${odpGracza}`);
+    console.log(`odpp: ${inter}`);
+}
+
+function restart(){
+    komunikat.textContent = "";
+    proby = 0;
+    prawidlowe = 0;
+    score.textContent = `Prawidłowe: 0 Próby: 0`;
+
+}
+
