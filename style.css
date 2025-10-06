@@ -1,7 +1,7 @@
 body {
     font-family: "Alan Sans", sans-serif;
     background-color: rgb(253, 243, 250);
-    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('images/tlo 1.png');
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('images/tlo.png');
     background-position: center;
     margin: 0;
     display: grid;
@@ -296,4 +296,5 @@ body {
 .ukryta{
     display: none;
 }
+
 
