@@ -22,17 +22,18 @@
             <div class="dropdown">
                 <button id="przyciskInst" onclick="rozwinInstrumenty()">Instrumenty</button>
                 <div id="zawartosc" class="ukryta">
-                    <a href="">Pianino</a>
-                    <a href="">Gitara</a>
-                    <a href="">Trąbka</a>
-                    <a href="">Flet</a>
-                    <a href="">Skrzypce</a>
-                    <a href="">Wiolonczela</a>
-                    <a href="">Saksofon</a>
-                    <a href="">Dzwonki</a>
-                    <a href="">Klawesyn</a>
+                    <a href="#" onclick="wybierzInstrument(`PIANO`,event)">Pianino</a>
+                    <a href="#" onclick="wybierzInstrument(`GUITAR`,event)">Gitara</a>
+                    <a href="#" onclick="wybierzInstrument(`TRUMPET`,event)">Trąbka</a>
+                    <a href="#" onclick="wybierzInstrument(`FLUTE`,event)">Flet</a>
+                    <a href="#" onclick="wybierzInstrument(`VIOLIN`,event)">Skrzypce</a>
+                    <a href="#" onclick="wybierzInstrument(`VIOLA`,event)">Altówka</a>
+                    <a href="#" onclick="wybierzInstrument(`SAXOPHONE`,event)">Saksofon</a>
+                    <a href="#" onclick="wybierzInstrument(`BELLS`,event)">Dzwonki</a>
+                    <a href="#" onclick="wybierzInstrument(`HARPSICHORD`,event)">Klawesyn</a>
                 </div>
             </div>
+            
                 
         </div>
         <nav id="menu" class="ukryta">
@@ -47,6 +48,7 @@
         <header id="glowa">
             <div id="kontenerGlowa">
                 <h1 id="nazwaStrony" class="tekst">MelodySteps</h1><br>
+                <h3 id="wInstrument"></h3>
                 <h2 id="tekst1" class="tekst">Wybierz interwały do gry</h2>
             </div>
         </header>
@@ -71,38 +73,43 @@
             <button id="odtworzPrzycisk" onclick="odtworz()">ODTWÓRZ</button>
             <h2 id="tekst2" class="tekst">Wybierz odpowiedź:</h2>
             <div id="boxOdp">
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(0)" name="wybor" id="0">
+                <input type="radio" class="interwalyWybor" value="0" name="wybor" id="0">
                 <label for="0" class="intNazwy"> 1</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(1)" name="wybor" id="1">
+                <input type="radio" class="interwalyWybor" value="1" name="wybor" id="1">
                 <label for="1" class="intNazwy"> 2m</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(2)" name="wybor" id="2">
+                <input type="radio" class="interwalyWybor" value="2" name="wybor" id="2">
                 <label for="2" class="intNazwy"> 2</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(3)" name="wybor" id="3">
+                <input type="radio" class="interwalyWybor" value="3" name="wybor" id="3">
                 <label for="3" class="intNazwy"> 3m</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(4)" name="wybor" id="4">
+                <input type="radio" class="interwalyWybor" value="4" name="wybor" id="4">
                 <label for="4" class="intNazwy"> 3</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(5)" name="wybor" id="5">
+                <input type="radio" class="interwalyWybor" value="5" name="wybor" id="5">
                 <label for="5" class="intNazwy"> 4</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(6)" name="wybor" id="6">
+                <input type="radio" class="interwalyWybor" value="6" name="wybor" id="6">
                 <label for="6" class="intNazwy"> 4zw</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(7)" name="wybor" id="7">
+                <input type="radio" class="interwalyWybor" value="7" name="wybor" id="7">
                 <label for="7" class="intNazwy"> 5</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(8)" name="wybor" id="8">
+                <input type="radio" class="interwalyWybor" value="8" name="wybor" id="8">
                 <label for="8" class="intNazwy"> 6m</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(9)" name="wybor" id="9">
+                <input type="radio" class="interwalyWybor" value="9" name="wybor" id="9">
                 <label for="9" class="intNazwy"> 6</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(10)" name="wybor" id="10">
+                <input type="radio" class="interwalyWybor" value="10" name="wybor" id="10">
                 <label for="10" class="intNazwy"> 7</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(11)" name="wybor" id="11">
+                <input type="radio" class="interwalyWybor" value="11" name="wybor" id="11">
                 <label for="11" class="intNazwy"> 7w</label>
-                <input type="radio" class="interwalyWybor" onclick="wybierzOdp(12)" name="wybor" id="12">
+                <input type="radio" class="interwalyWybor" value="12" name="wybor" id="12">
                 <label for="12" class="intNazwy"> 8</label>
             </div>
-            <button id="zatwierdzPrzycisk" onclick="submit()">ZATWIERDŹ</button>
-            <button id="restartPrzycisk" onclick="restart()">RESTART</button>
-            <div id="boxScore">
-
+            <div class="boxPodzialDolu">
+                <div class="boxPrzyciski">
+                    <button id="zatwierdzPrzycisk" onclick="zatwierdzOdp()">ZATWIERDŹ</button>
+                    <button id="restartPrzycisk" onclick="restart()">RESTART</button>
+                </div>
+                <div class="boxScore">
+                    <p id="Score">Prawidłowe: 0  Próby: 0</p>
+                </div>
             </div>
+            
         </div>
     </div>
     <script src="index.js"></script>
