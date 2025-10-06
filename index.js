@@ -154,7 +154,7 @@ function sprawdzOdp(){
 function zatwierdzOdp(){
     test = true;
     let odpGracza = sprawdzOdp();
-    if (odpGracza === inter && inter != null){
+    if (odpGracza == inter && inter != null){
         komunikat.textContent = `✅Prawidłowa odpowiedź✅`;
         prawidlowe++;
         score.textContent = `Prawidłowe: ${prawidlowe} Próby: ${proby}`;
@@ -175,4 +175,5 @@ function restart(){
     score.textContent = `Prawidłowe: 0 Próby: 0`;
 
 }
+
 
