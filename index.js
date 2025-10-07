@@ -15,6 +15,30 @@ let firstNote;
 let secondNote;
 let instrument;
 
+document.addEventListener("click", (event) => {
+  const menu = document.getElementById("menu");
+  const lista = document.getElementById("zawartosc");
+
+  const kliknietoMenu = event.target.closest("#menu");
+  const kliknietoLista = event.target.closest("#lista");
+  const kliknietoHamburger = event.target.closest("#hamburger");
+  const kliknietoInstrumenty = event.target.closest("#przyciskInst");
+  const kliknietoZawartosc = event.target.closest("#zawartosc");
+  
+  if (kliknietoMenu || kliknietoLista || kliknietoHamburger || kliknietoInstrumenty || kliknietoZawartosc) {
+    return;
+  }
+
+  if (menu.classList.contains("widoczna")) {
+    menu.classList.remove("widoczna");
+    menu.classList.add("ukryta");
+  }
+  if (lista && lista.classList.contains("widoczna")) {
+    lista.classList.remove("widoczna");
+    lista.classList.add("ukryta");
+  }
+});
+
 class Intrument {
     constructor(soundFile){
         this.soundFile = soundFile;
@@ -184,4 +208,5 @@ function restart(){
     score.textContent = `Prawidłowe: 0 Próby: 0`;
 
 }
+
 
